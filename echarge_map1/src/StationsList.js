@@ -2,6 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useAuth } from './AuthContent';
+const API_URL = process.env.REACT_APP_API_URL;
 
 const StationsList = ({ stations, onEdit, onDelete }) => {
   // Handle station deletion
@@ -13,7 +14,7 @@ const StationsList = ({ stations, onEdit, onDelete }) => {
         return;
       }
   
-      const response = await axios.delete(`http://localhost:5000/stations/${stationId}`, {
+      const response = await axios.delete(`${API_URL}/stations/${stationId}`, {
         data: { username: username }
       });
       console.log(response.data);
