@@ -4,6 +4,7 @@ import { useAuth } from './AuthContent';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+const API_URL = process.env.REACT_APP_API_URL;
 
 const customMarkerIcon = new L.Icon({
   iconUrl: 'https://i.ibb.co/MCMwgBZ/placeholder.png',
@@ -55,7 +56,7 @@ const AddStation = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevents the default form submission behavior
-    axios.post('http://localhost:5000/stations', stationData)
+    axios.post('${API_URL}/stations', stationData)
       .then(response => {
         console.log(response.data); // Log the response
         // You can add redirection or a success message here
