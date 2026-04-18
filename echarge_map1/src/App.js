@@ -8,6 +8,7 @@ import StationsList from './StationsList';
 import Login from './Login';
 import Register from './Register';
 import { AuthProvider, useAuth } from './AuthContent'; // Ensure this is correctly named and imported
+const API_URL = process.env.REACT_APP_API_URL;
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth(); // Use AuthContext to check auth status
@@ -26,7 +27,7 @@ function App() {
   const [stations, setStations] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/stations')
+    axios.get('${API_URL}/stations')
       .then(response => {
         setStations(response.data);
       })
