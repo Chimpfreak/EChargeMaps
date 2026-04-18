@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Atlas connection string
-const mongoDBUri = 'mongodb+srv://user1:Hridai123M@cluster0.iaknsjj.mongodb.net/';
+const mongoDBUri = process.env.MONGO_URI;
 
 mongoose.connect(mongoDBUri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
