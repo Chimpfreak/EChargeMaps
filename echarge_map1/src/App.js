@@ -27,7 +27,7 @@ function App() {
   const [stations, setStations] = useState([]);
 
   useEffect(() => {
-    axios.get('${API_URL}/stations')
+    axios.get(`${API_URL}/stations`)
       .then(response => {
         setStations(response.data);
       })
