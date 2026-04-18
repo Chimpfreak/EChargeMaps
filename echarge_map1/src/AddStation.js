@@ -56,7 +56,7 @@ const AddStation = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevents the default form submission behavior
-    axios.post('${API_URL}/stations', stationData)
+    axios.post(`${API_URL}/stations`, stationData)
       .then(response => {
         console.log(response.data); // Log the response
         // You can add redirection or a success message here
